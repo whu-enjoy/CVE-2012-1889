@@ -1,0 +1,85 @@
+Executable modules
+Base       Size       Entry      Name       File version      Path
+76210000   000A0000   762249E5   ADVAPI32   6.1.7600.16385 (  C:\Windows\syswow64\ADVAPI32.dll
+74180000   0004C000   74182C14   apphelp    6.1.7600.16385 (  C:\Windows\system32\apphelp.dll
+73180000   00036000   73189DAE   AUDIOSES   6.1.7600.16385 (  C:\Windows\system32\AUDIOSES.DLL
+749A0000   00007000   749A10C0   AVRT       6.1.7600.16385 (  C:\Windows\system32\AVRT.dll
+72F20000   0006C000   72F4B037   BAIDUCN    4.1.3051.0        C:\Windows\system32\BAIDUCN.IME
+75CD0000   00027000   75CD58B9   CFGMGR32   6.1.7601.17514 (  C:\Windows\syswow64\CFGMGR32.dll
+762B0000   00083000   762B23D2   CLBCatQ    2001.12.8530.163  C:\Windows\syswow64\CLBCatQ.DLL
+74430000   0019E000   7445E6B5   comctl32   6.10 (win7_rtm.0  C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\comctl32.dll
+723B0000   00084000   723B19A9   COMCTL_1   5.82 (win7_rtm.0  C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.7601.17514_none_ec83dffa859149af\COMCTL32.dll
+75E70000   0007B000   75E71AEE   comdlg32   6.1.7600.16385 (  C:\Windows\syswow64\comdlg32.dll
+77570000   0011D000   7757158A   CRYPT32    6.1.7600.16385 (  C:\Windows\syswow64\CRYPT32.dll
+755E0000   0000C000   755E10E1   CRYPTBAS   6.1.7600.16385 (  C:\Windows\syswow64\CRYPTBASE.dll
+73390000   00016000   73392DC3   CRYPTSP    6.1.7600.16385 (  C:\Windows\system32\CRYPTSP.dll
+742D0000   0000B000   742D1200   cscapi     6.1.7601.17514 (  C:\Windows\system32\cscapi.dll
+76410000   00012000   76411441   DEVOBJ     6.1.7600.16385 (  C:\Windows\syswow64\DEVOBJ.dll
+73530000   00044000   735463F9   dnsapi     6.1.7600.16385 (  C:\Windows\system32\dnsapi.DLL
+732B0000   00013000   732B1D3F   dwmapi     6.1.7600.16385 (  C:\Windows\system32\dwmapi.dll
+714B0000   00031000   714BA8B6   EhStorSh   6.1.7600.16385 (  C:\Windows\system32\EhStorShell.dll
+75AD0000   00090000   75AE6343   GDI32      6.1.7601.17514 (  C:\Windows\syswow64\GDI32.dll
+73680000   00190000   7371D026   gdiplus    6.1.7601.17514 (  C:\Windows\WinSxS\x86_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.7601.17514_none_72d18a4386696c80\gdiplus.dll
+6EE30000   00A80000   6EE36B95   IEFRAME    8.00.7600.16385   C:\Windows\system32\IEFRAME.dll
+72EB0000   0002B000   72ECD3FE   ieproxy    8.00.7601.17514   C:\Program Files (x86)\Internet Explorer\ieproxy.dll
+764E0000   001FB000   764E22D9   iertutil   8.00.7601.17514   C:\Windows\syswow64\iertutil.dll
+72490000   00035000   724B4CDC   IEShims    8.00.7601.17514   C:\Program Files (x86)\Internet Explorer\IEShims.dll
+01120000   000A6000   01121C9A   iexplore   8.00.7600.16385   C:\Program Files (x86)\Internet Explorer\iexplore.exe
+6FF80000   000C3000   6FFEEF58   imefreet                     C:\Program Files (x86)\Baidu\BaiduPinyin\4.1.3051.0\imefreetype.dll
+6FF30000   0004E000   6FF53A71   imepng     1.6.16            C:\Program Files (x86)\Baidu\BaiduPinyin\4.1.3051.0\imepng.dll
+6FEF0000   00033000   6FF03A47   imezlib                      C:\Program Files (x86)\Baidu\BaiduPinyin\4.1.3051.0\imezlib.dll
+75F50000   00060000   75F6158F   IMM32      6.1.7601.17514 (  C:\Windows\system32\IMM32.DLL
+741D0000   0001C000   741DA431   iphlpapi   6.1.7600.16385 (  C:\Windows\system32\iphlpapi.DLL
+6D430000   0000D000   6D436A7E   jp2ssv     6.0.370.6         C:\Program Files (x86)\Java\jre6\bin\jp2ssv.dll
+75BC0000   00110000   75BD32D3   kernel32   6.1.7600.16385 (  C:\Windows\syswow64\kernel32.dll
+75750000   00046000   75757478   KERNELBA   6.1.7600.16385 (  C:\Windows\syswow64\KERNELBASE.dll
+74FF0000   00004000   74FF1030   ksuser     6.1.7600.16385 (  C:\Windows\system32\ksuser.dll
+77A60000   0000A000   77A636A0   LPK        6.1.7600.16385 (  C:\Windows\syswow64\LPK.dll
+748F0000   00007000   748F11D0   midimap    6.1.7600.16385 (  C:\Windows\system32\midimap.dll
+74930000   0002E000   749316ED   MLANG      6.1.7600.16385 (  C:\Windows\system32\MLANG.dll
+72EE0000   00039000   72EEE2DE   MMDevAPI   6.1.7600.16385 (  C:\Windows\system32\MMDevAPI.DLL
+74990000   00008000   74994119   msacm32    6.1.7600.16385 (  C:\Windows\system32\msacm32.drv
+74830000   00014000   74831340   MSACM3_1   6.1.7600.16385 (  C:\Windows\system32\MSACM32.dll
+75910000   0000C000   7591238E   MSASN1     6.1.7601.17514 (  C:\Windows\syswow64\MSASN1.dll
+75840000   000CC000   7584168B   MSCTF      6.1.7600.16385 (  C:\Windows\syswow64\MSCTF.dll
+703D0000   005B7000   703DBFFB   mshtml     8.00.7600.16385   C:\Windows\SysWOW64\mshtml.dll
+73670000   00005000   736710F6   MSIMG32    6.1.7600.16385 (  C:\Windows\system32\MSIMG32.dll
+749B0000   0000B000   749B12C6   msimtf     6.1.7600.16385 (  C:\Windows\system32\msimtf.dll
+71C10000   0002A000   71C110ED   msls31     3.10.349.0        C:\Windows\SysWOW64\msls31.dll
+7C340000   00056000   7C34229F   MSVCR71    7.10.3052.4       C:\Program Files (x86)\Java\jre6\bin\MSVCR71.dll
+76430000   000AC000   7643A472   msvcrt     7.0.7600.16385 (  C:\Windows\syswow64\msvcrt.dll
+75EF0000   00006000   75EF1782   NSI        6.1.7600.16385 (  C:\Windows\syswow64\NSI.dll
+77A90000   00180000              ntdll      6.1.7600.16385 (  C:\Windows\SysWOW64\ntdll.dll
+74300000   00021000   7430145E   ntmarta    6.1.7600.16385 (  C:\Windows\system32\ntmarta.dll
+70E70000   00070000   70E71F65   ntshrui    6.1.7600.16385 (  C:\Windows\system32\ntshrui.dll
+75D10000   0015C000   75D5BA3D   ole32      6.1.7600.16385 (  C:\Windows\syswow64\ole32.dll
+73310000   0003C000   73313089   OLEACC     7.0.0.0 (win7_rt  C:\Windows\system32\OLEACC.dll
+76380000   0008F000   76383FB1   OLEAUT32   6.1.7601.17514    C:\Windows\syswow64\OLEAUT32.dll
+75140000   0000B000   75141992   profapi    6.1.7600.16385 (  C:\Windows\system32\profapi.dll
+71D70000   000F5000   71D80D9E   propsys    7.00.7600.16385   C:\Windows\system32\propsys.dll
+75AC0000   00005000   75AC1438   PSAPI      6.1.7600.16385 (  C:\Windows\syswow64\PSAPI.DLL
+76740000   000F0000   76750569   RPCRT4     6.1.7600.16385 (  C:\Windows\syswow64\RPCRT4.dll
+742C0000   0000E000   742C1235   RpcRtRem   6.1.7601.17514 (  C:\Windows\system32\RpcRtRemote.dll
+73350000   0003B000   7335128D   rsaenh     6.1.7600.16385 (  C:\Windows\system32\rsaenh.dll
+760B0000   00019000   760B4975   sechost    6.1.7600.16385 (  C:\Windows\SysWOW64\sechost.dll
+75920000   0019D000   759217E7   SETUPAPI   6.1.7600.16385 (  C:\Windows\syswow64\SETUPAPI.dll
+76890000   00C4A000   76911601   SHELL32    6.1.7601.17514 (  C:\Windows\syswow64\SHELL32.dll
+766E0000   00057000   766F9BA6   SHLWAPI    6.1.7600.16385 (  C:\Windows\syswow64\SHLWAPI.dll
+73120000   0000A000   73124D20   slc        6.1.7600.16385 (  C:\Windows\system32\slc.dll
+73810000   00019000   73811319   srvcli     6.1.7601.17514 (  C:\Windows\system32\srvcli.dll
+755F0000   00060000   7560A3B3   SspiCli    6.1.7601.17514 (  C:\Windows\syswow64\SspiCli.dll
+6D730000   0004F000   6D74821B   ssv        6.0.370.6         C:\Program Files (x86)\Java\jre6\bin\ssv.dll
+731C0000   0005F000   731C2134   SXS        6.1.7600.16385 (  C:\Windows\system32\SXS.DLL
+70050000   00316000   70213DD2   UIPFull    4.1.3051.0        C:\Program Files (x86)\Baidu\BaiduPinyin\4.1.3051.0\UIPFull.dll
+760D0000   00136000   760D1B35   urlmon     8.00.7600.16385   C:\Windows\syswow64\urlmon.dll
+75650000   00100000   7566B6ED   USER32     6.1.7601.17514 (  C:\Windows\syswow64\USER32.dll
+757A0000   0009D000   757D3FD7   USP10      1.0626.7601.1751  C:\Windows\syswow64\USP10.dll
+745D0000   00080000   745E37C9   uxtheme    6.1.7600.16385 (  C:\Windows\system32\uxtheme.dll
+75160000   00009000   75161220   VERSION    6.1.7600.16385 (  C:\Windows\system32\VERSION.dll
+74900000   00030000   74903C6B   wdmaud     6.1.7600.16385 (  C:\Windows\system32\wdmaud.drv
+74330000   000FB000   743417E1   WindowsC   6.1.7601.17514 (  C:\Windows\system32\WindowsCodecs.dll
+75FB0000   000F5000   75FB1865   WININET    8.00.7600.16385   C:\Windows\syswow64\WININET.dll
+734A0000   00032000   734A37F1   WINMM      6.1.7600.16385 (  C:\Windows\system32\WINMM.dll
+75130000   00007000   7513128D   WINNSI     6.1.7600.16385 (  C:\Windows\system32\WINNSI.DLL
+75F00000   00045000   75F011E1   WLDAP32    6.1.7600.16385 (  C:\Windows\syswow64\WLDAP32.dll
+76340000   00035000   7634145D   ws2_32     6.1.7600.16385 (  C:\Windows\syswow64\ws2_32.DLL
